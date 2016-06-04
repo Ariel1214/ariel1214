@@ -1,0 +1,123 @@
+---
+layout: page
+title: "About"
+description: "Hey, this is Ariel."
+header-img: "img/about-bg.jpg"
+---
+
+<!-- Language Selector -->
+<select onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+    <option value="0" selected> 中文 Chinese </option>
+    <option value="1"> 英语 English </option>
+</select>
+
+<!-- Chinese Version -->
+<div class="zh post-container">
+    <blockquote>
+        是誰來自山川湖海，
+       卻囿於晝夜、廚房與愛
+    </blockquote>
+    我虽然看起来像个小丑，受到命运残酷的作弄，不得不戴上面具，被迫昼伏夜出，不见天日，但我仍不畏强权，挺身而出，发誓铲奸除恶，伸张正义，为饱受压迫的人民出一口气，唯一的方法就是复仇，这不是戏言，而是誓言，想要拯救水深火热中的同胞，就要使用以暴制暴的极端手段.我的冗长赘言就此结束，最后容我说很荣幸认识你，你可以叫我 V。
+
+
+    <p style="text-align:right;">
+        —— 《V字仇杀队》
+    </p>
+
+</div>
+
+<!-- English Version -->
+<div class="en post-container">
+    <blockquote>
+        Pain is inevitable. Suffering is optional.
+    </blockquote>
+
+    <p>
+        Voilà! In View,a humble VaudeVillian Veteran cast Vicariously as both Victim and Villain by the Vicissitudes of fate.This Visage,no mere Veneer of Vanity is a Vestige of the Vox populi,now Vacant,Vanished.However,this Valorous Visitation of a bygone Vexation stands Vivified and has Vowed to Vanquish these Venal and Virulent Vermin Vanguarding Vice and Vouchsafing the Violently Vicious and Voracious Violation of Volition.The only Verdict is Vengeance,a Vendetta held as a VotiVe not in Vain,for the Value and Veracity of such shall one day Vindicate the Vigilant and the Virtuous.Verily,this Vichyssoise of Verbiage Veers most Verbose. So let me simply add that it's my Very good honor to meet you and you may call me V.
+    </p>
+
+    <p style="text-align:right;">
+    -- V for Vendetta 
+    </p>
+
+</div>
+
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    function onLanChange(index){
+        if(index == 0){
+            $zh.style.display = "block";
+            $en.style.display = "none";
+        }else{
+            $en.style.display = "block";
+            $zh.style.display = "none";
+        }
+    }
+    onLanChange(0);
+</script>
+
+
+
+{% if site.duoshuo_username %}
+<!-- 多说评论框 start -->
+<div class="comment">
+    <div class="ds-thread"
+    {% if site.duoshuo_username == "huxblog" %}
+        data-thread-id="1187623191091085319"
+    {% else %}
+        data-thread-key="{{site.duoshuo_username}}/about"
+    {% endif %}
+
+    data-title="{{page.title}}"
+    data-url="{{site.url}}/about/"></div>
+</div>
+<!-- 多说评论框 end -->
+
+<!-- Duoshuo hacking -->
+<input id="dsUser" type="hidden" value="{{site.duoshuo_username}}"  />
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User hacking by Hux
+    var _user = document.getElementById('dsUser').value;
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+{% endif %}
+
+
+{% if site.disqus_username %}
+<!-- disqus 评论框 start -->
+<div class="comment">
+    <div id="disqus_thread" class="disqus-thread">
+
+    </div>
+</div>
+<!-- disqus 评论框 end -->
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "{{site.disqus_username}}";
+    var disqus_identifier = "{{site.disqus_username}}/{{page.url}}";
+    var disqus_url = "{{site.url}}{{page.url}}";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+{% endif %}
